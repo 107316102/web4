@@ -103,7 +103,13 @@
                     <input type="checkbox" class="checks" value="Jogging ">Jogging <br>
                     <input type="checkbox" class="checks" value="Fishing ">Fishing<br>
                     <input type="checkbox" class="checks" value="Dancing ">Dancing<br>
-                
+                    <table border="1" id="table1">
+                        　<tr>
+                        　<td rowspan="2">Hobby is</td>
+                        <tr>　
+                        　</tr>
+                        </table>
+                        <input type="button" onclick="Hobby()" value="複數選項"><br>
                     
                     
                     <input type="submit" value="Submit"><br>
@@ -258,6 +264,42 @@ alert("您的體重超重");
                $('#myselect').append('<option value="'+ data.value +'">' + data.title + '</option>');
            });
        });
+       function Hobby() 
+    {
+        var Arr1 = new Array();
+        var i = 1;
+        var j = 0;
+
+        var ai = 0;
+        var aj = 0;
+
+        if (document.getElementById("hobby1").checked) {
+            Arr1[ai, aj] = [document.getElementById("hobby1").id, document.getElementById("hobby1").value]
+            aj++;
+        }
+        if (document.getElementById("hobby2").checked) {
+            Arr1[ai, aj] = [document.getElementById("hobby2").id, document.getElementById("hobby2").value]
+            aj++;                
+        }
+        if (document.getElementById("hobby3").checked) {
+            Arr1[ai, aj] = [document.getElementById("hobby3").id, document.getElementById("hobby3").value]
+            aj++;
+        }
+        if (document.getElementById("hobby4").checked) {
+            Arr1[ai, aj] = [document.getElementById("hobby4").id, document.getElementById("hobby4").value]
+            aj++;
+        }
+        if (document.getElementById("hobby5").checked) {
+            Arr1[ai, aj] = [document.getElementById("hobby5").id, document.getElementById("hobby5").value]
+            aj++;
+        }
+        var firstRow = document.getElementById("table1").rows[i];
+        for (j = 0; j <= aj; j++) {
+        var x = firstRow.insertCell(0);
+        x.innerHTML=Arr1[0,j];
+        //x.innerHTML = Arr1[0,j],Arr1[j][0];
+        }
+    }
        </script>
 
 </html>
