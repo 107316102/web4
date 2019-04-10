@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CONGESTIVE HEART FAILURE ADMISSION ORDERS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+</head>
+
+<body>
+
+    <form id="form1" name="form" action="http://203.64.84.113/x/RQ_RS.aspx" method="post">
+
+
+        <br>Name:</br>
+        <input type="text" id="name" name="patientName" value=" "></br>
+
+        <br>Address:</br>
+        <input type="text" id="address" name="patientaddress" value=" "></br>
+
+        Telephone number:<br>
+        <input type="text" id="telnumb" name="telephonenumber" value=" "></br>
+
+
+        <div>
+            <form name="form" id="form">
+
+                Gender:</br>
+                <label><input type="radio" name="gender" value="male" onclick="npbg1();" />Male</label>
+                <label><input type="radio" name="gender" value="female" onclick="npbg1();" />Female</label>
+                <label><input type="radio" name="gender" value="other gender"
+                        onclick="npbg1();" />Othergender</label></br>
+
+                Birthday:</br>
+                Year:
+                <input id="year" name="year" type="text" size="5" />
+
+                Month
+                <select name="month">
+                    <option value="00">&lt;please select&gt;</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+
+                Day
+                <select name="day">
+                    <option value="00">&lt;please select&gt;</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select><br>
+
+                Degree:
+                <input type="radio" name="degree" value="PHD" checked>PHD
+                <input type="radio" name="degree" value="Master" checked>Master</br>
+
+
+                <div class="container">
+                    Hobby:</br>
+                    <input type="checkbox" class="checks" value="Camping ">Camping <br>
+                    <input type="checkbox" class="checks" value="Swimming ">Swimming <br>
+                    <input type="checkbox" class="checks" value="Jogging ">Jogging <br>
+                    <input type="checkbox" class="checks" value="Fishing ">Fishing<br>
+                    <input type="checkbox" class="checks" value="Dancing ">Dancing<br>
+                    <table border="1" id="table1">
+                        　<tr>
+                        　<td rowspan="2">Hobby is</td>
+                        <tr>　
+                        　</tr>
+                        </table>
+                        <input type="button" onclick="Hobby()" value="複數選項"><br>
+                    
+                    
+                    <input type="submit" value="Submit"><br>
+                    <input type="button" onclick="npbg1()" value="Button 1">(顯示變數資料)<br>
+                    <input type="button" onclick="npbg2()" value="Button 2">(檢查姓名是否為空白)<br>
+                    <input type="button" onclick="npbg3()" value="Button 3">(檢查數字是否填入正確)<br>
+                    <input type="button" onclick="npbg4()" value="Button 4">(點選填入JSON data)<br>
+                     <br>
+                    BMI計算器<br>
+                    <form method=post>
+                        你的身高(cm):<input type="text" name="height">
+                        你的體重(kg):<input type="text" name="weight"><br>
+                        <input type="button" value="開始計算" onclick="Cal(this.form)">
+                        <br/>
+                        你的理想體重:<input type="text" name="IW">
+                        您的BMI:<input type="text" name="BMI"><br>
+                        </form>
+                    <a href="#" onclick="getValue();return false;">複選選項</a><br>
+            
+            </form>
+    </form>
+</body>
+    <script>
+        //顯示資料alert
+        function npbg1() {
+            var patientName_element = document.getElementsByName('patientName');
+            var patientName = patientName_element[0].value;
+            var patientaddress_element = document.getElementsByName('patientaddress');
+            var patientaddress = patientaddress_element[0].value;
+            var telephonenumber_element = document.getElementsByName('telephonenumber');
+            var telephonenumber = telephonenumber_element[0].value;
+            var year_element = document.getElementsByName('year');
+            var year = year_element[0].value;
+            var gender = document.getElementsByName("gender");
+            for (var i = 0; i < gender.length; i++) {
+                if (gender[i].checked) {
+                    alert('Name : ' + patientName + '\nAddress : ' + patientaddress +
+                        '\nTelePhone Number : ' + telephonenumber + '\nBirthday year is : ' + year + '\nGender : ' + gender[i].value);
+                }
+            }
+        }
+        //檢查數字姓名空白
+        function npbg2() {
+            var condId = document.getElementById("name");
+            var text = condId.value;
+            var textValue = text.replace(/(^\s*)|(\s*$)/g, "");     //替换输入内容当中所有的空字符，包括全角空格，半  
+            if (textValue == null || textValue == "") {
+                alert("Name must be filled in!");
+                return false;
+            }
+
+        }
+        //檢查數字
+        function npbg3() {
+            var num = document.getElementById("telnumb");
+            if (isNaN(num.value) && num.value != "") {
+                alert("Number use only!")
+            }
+        }
+        //填入資料
+        function npbg4() {
+            var patient = { "name": "Chalmers", "telecom": 12345678, "gender": "male", "year": "1974", "month": "12", "day": "25" };
+            document.form.patientName.value = patient.name;
+            document.form.telnumb.value = patient.telecom;
+            document.form.gender.value = patient.gender;
+            document.form.year.value = patient.year;
+            document.form.month.value = patient.month;
+            document.form.day.value = patient.day;
+        }
+        function getValue() {
+
+            var checks = document.getElementsByClassName('checks');
+            var str = '';
+
+            for (i = 0; i < 5; i++) {
+
+                if (checks[i].checked === true) {
+                    str += checks[i].value + " ";
+                }
+            }
+            alert("Hobby is " + str);
+        }
+        //BMI計算
+        var BMI={};
+BMI.getBMI=function(a,b){
+var bmi=b/((a/100)*(a/100));
+return bmi;
+};
+BMI.idealweight=function(a){
+var x=(a-100)*0.9;
+return x;
+};
+function Cal(form){
+var a=eval(form.height.value);
+var b=eval(form.weight.value);
+var bmi=eval(form.BMI.value);
+var bmiValue =BMI.getBMI(a,b);
+BMI.disp_alert(bmiValue );
+form.IW.value=BMI.idealweight(a);
+form.BMI.value= bmiValue ;
+}
+BMI.disp_alert = function(bmi){
+if (bmi < 18.5)
+{
+alert("您的體重太輕");
+}
+else if (bmi >= 18.5 && bmi < 25)
+{
+alert("您的體重正常");
+}
+else if (bmi >= 25 && bmi< 30)
+{
+alert("您的體重過重");
+}
+else
+{
+alert("您的體重超重");
+}
+}
+
+    </script>
+    </div>
+    <body>
+        Please select your hometown:<br>    
+        <select id="myselect"></select>
+       </body>
+       <script>
+       var datas = [
+           {title:'基隆',value:'taipei'},
+           {title:'台北',value:'taichung'},
+           {title:'桃園',value:'tainan'},
+           {title:'新竹',value:'kaohsiung'},
+           {title:'苗栗',value:'taipei'},
+           {title:'台中',value:'taipei'},
+           {title:'彰化',value:'taipei'},
+           {title:'雲林',value:'taipei'},
+           {title:'嘉義',value:'taipei'},
+           {title:'台南',value:'taipei'},
+           {title:'高雄',value:'taipei'},
+           {title:'屏東',value:'taipei'},
+           {title:'宜蘭',value:'taipei'},
+           {title:'花蓮',value:'taipei'},
+           {title:'台東',value:'taipei'},
+           {title:'南投',value:'taipei'},
+           {title:'澎湖',value:'taipei'},
+           {title:'金門',value:'taipei'},
+           {title:'馬祖',value:'taipei'},
+           ];
+       
+       $(function(){
+           datas.map(function(data){
+               $('#myselect').append('<option value="'+ data.value +'">' + data.title + '</option>');
+           });
+       });
+       function Hobby() 
+    {
+        var Arr1 = new Array();
+        var i = 1;
+        var j = 0;
+
+        var ai = 0;
+        var aj = 0;
+
+        if (document.getElementById("hobby1").checked) {
+            Arr1[ai, aj] = [document.getElementById("hobby1").id, document.getElementById("hobby1").value]
+            aj++;
+        }
+        if (document.getElementById("hobby2").checked) {
+            Arr1[ai, aj] = [document.getElementById("hobby2").id, document.getElementById("hobby2").value]
+            aj++;                
+        }
+        if (document.getElementById("hobby3").checked) {
+            Arr1[ai, aj] = [document.getElementById("hobby3").id, document.getElementById("hobby3").value]
+            aj++;
+        }
+        if (document.getElementById("hobby4").checked) {
+            Arr1[ai, aj] = [document.getElementById("hobby4").id, document.getElementById("hobby4").value]
+            aj++;
+        }
+        if (document.getElementById("hobby5").checked) {
+            Arr1[ai, aj] = [document.getElementById("hobby5").id, document.getElementById("hobby5").value]
+            aj++;
+        }
+        var firstRow = document.getElementById("table1").rows[i];
+        for (j = 0; j <= aj; j++) {
+        var x = firstRow.insertCell(0);
+        x.innerHTML=Arr1[0,j];
+        //x.innerHTML = Arr1[0,j],Arr1[j][0];
+        }
+    }
+       </script>
+
+</html>
